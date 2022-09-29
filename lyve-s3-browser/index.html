@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Lyve S3 Browser</title>
+		<script type="text/javascript" src="code/js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="code/js/libs/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="code/js/libs/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="code/js/libs/jquery.form.js"></script>
+		<script type="text/javascript" src="code/js/libs/sha1.js"></script>
+		<script type="text/javascript" src="code/js/lyves3browser.js"></script>
+		<link rel="stylesheet" href="code/css/lyves3browser.css" type="text/css" />
+	</head>
+<body>
+
+<div id="div_login_form">
+	<div id="login_error">Login failed. Please check the information and try again.</div>
+	<div class="theming">
+		<h1>S3 Browser</h1>
+		<h2>LYVE CLOUD</h2>
+		<a id="logout" href="/">Logout</a>
+	</div>
+	<form id="login_form" action="" method="GET">
+		<div class="input_group"><label for="bucket">Bucket</label><input type="text" name="bucket" id="bucket" value="" /></div>
+		<div class="input_group"><label for="access_key_id">Access Key</span><input type="text" name="access_key_id" id="access_key_id" value="" /></div>
+		<div class="input_group"><label for="secret_access_key">Secret Key</label><input type="text" name="secret_access_key" id="secret_access_key" value="" /></div>
+		<input type="submit" value="Login" />
+	</form>
+</div>
+<div id="bucketlist"></div>
+<div id="upload">
+	<form id="upload_form" action="/" method="post" enctype="multipart/form-data">
+		<label for="fileupload">Select file to upload: </label><div id="fake_upload">Choose file<input type="file" id="fileupload" name="file" /></div>
+	<!--    <input type="submit" value="Save"> -->
+	</form>
+	or just drop the files here to upload them immediately.
+	<div id="div_upload_form" class="fade well">
+		Drop files here:
+	</div>
+</div>
+<script>
+var lyves3browser = new LyveS3Browser;
+jQuery(document).ready(function(){
+        // See https://help.lyvecloud.seagate.com/en/s3-api-endpoint.html#s3_region for a listing of proper s3_endpoints.
+	lyves3browser.init({'hash': location.hash, 'login_form': '#login_form', 'div_logout_form': '#div_logout_form', 'div_upload_form': '#upload', 'fileupload_field': '#fileupload', 'bucketlist': '#bucketlist', 'login_error': '#login_error', 's3_endpoint': 's3.us-east-1.lyvecloud.seagate.com'});
+});
+</script>
+
+</body>
+</html>
+
