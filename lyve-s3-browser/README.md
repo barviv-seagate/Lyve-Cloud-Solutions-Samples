@@ -4,7 +4,7 @@
 Lyve-S3-Browser is a file browser for Lyve Cloud S3.
  
 Lyve-S3-Browser is simply a browser-based client
-Enabling Lyve Cloud users to browse and download files over Lyve Cloud S3 bucket.
+Enabling Lyve Cloud users to browse and download files from specified bucket in Lyve Cloud.
 
 
 ## Requirements
