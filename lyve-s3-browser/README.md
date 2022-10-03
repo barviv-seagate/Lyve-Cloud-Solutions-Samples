@@ -18,9 +18,6 @@ Enabling Lyve Cloud users to browse,download and upload files over Lyve Cloud S3
   * Port 80 open
   * Root or sudo access
 
-## Known Limitations 
-Currently file upload functionality is not working as CORS is not enabled and will be fixed in next release.
-
 ## Running Steps
  - Create a new bucket using https://help.lyvecloud.seagate.com/en/managing-buckets.html
    pay attention that you place the bucket in the region you want it to be in.
