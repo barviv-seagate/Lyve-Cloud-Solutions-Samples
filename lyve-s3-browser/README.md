@@ -29,12 +29,24 @@ Currently file upload functionality is not working as CORS is not enabled and wi
    Using the permission create the Service Account and note down the credentials.
    Refer help document https://help.lyvecloud.seagate.com/en/managing-service-accounts.html
 
- - Download the code from Git Hub and store under /var/www/html directory.
-   Restart the apache service 'service apache2 restart', make sure port 80 is open.
+ - Install and configure Apache on your ubuntu server using following steps
+	'sudo apt update'
+	'sudo apt install apache2'
+	'sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/yourdomain.conf'
+	configure VirtualHost setting inside your yourdomain.conf file with below parameters
+	VirtualHost *:80
+	ServerAdmin user@yourdomain.com
+	DocumentRoot /var/www/html
+	ServerName web.yourdomain.com
 
- - Customize the s3 endpoint at the end of the index.html file. It is set to us-east Region
-   endpoint by default. See https://help.lyvecloud.seagate.com/en/s3-api-endpoint.html#s3 region
-   for a listing of proper endpoints.
+ - Clone the repo and set it in /var/www/html directory.
+   Customize the s3 endpoint at the end of the index.html file, default endpoint is us-east Region.
+   See https://help.lyvecloud.seagate.com/en/s3-api-endpoint.html#s3 region for a listing of proper endpoints.
+
+ - Make sure port 80 is listing, you can verify with below command.
+	'sudo netstat -tulpn | grep LISTEN'
+   Restart the apache service with below command.
+        'service apache2 restart'
 
 
 ## Results 
