@@ -12,12 +12,14 @@ This repository holds integration solutions written by Lyve Cloud community deve
 Notice the integration solutions are not part of the Lyve Cloud product. The integrations listed on this page are made available and contributed “as-is”, without warranty, and disclaiming liability for damages resulting from using the projects.
 
 ## Getting Started
+
 - Browse our repository to find usefull tools for your needs (as listed below) or to get inspiration for building your integration solution.
 - Jumpstart your integration with our [S3 actions code samples](s3-actions-code-samples).
 - Have a question? Let's have a [discussion](https://github.com/Seagate/Lyve-Cloud-solutions-samples/discussions) (don't be shy).
 - Want to create and contribute your own solution? Read our [Contribution Guide](CONTRIBUTING.md).
 
 # Integration Solutions
+
 *Please click on the arrows to expand*
 <details><summary>Migrating and syncing to Lyve Cloud</summary> 
 
@@ -26,20 +28,21 @@ Notice the integration solutions are not part of the Lyve Cloud product. The int
 | 1. [On-demand sync of Linux local directory to Lyve Cloud bucket.](s3sync-local-to-lyvecloud/)| Linux |Cronjob|Manual
 | 2. [Migrating and syncing between AWS and Lyve Cloud buckets.](syncer/)|AWS|AWS Lambda|Cli-Tool|
 | 3. [Replicating new objects created in AWS S3 bucket to a Lyve Cloud bucket.](s3-replication-to-lyvecloud/)|AWS|AWS Lambda|Manual|
-|  4. [Full-stack solution for easily migrating and synchronizing files from other cloud services to Lyve Cloud](data-migration-and-sync-to-lyvecloud/). | Generic S3, GCP, Alibaba, Azure Containers | Web App| ---|
+| 4. [Full-stack solution for easily migrating and synchronizing files from other cloud services to Lyve Cloud](data-migration-and-sync-to-lyvecloud/). | Generic S3, GCP, Alibaba, Azure Containers | Web App| ---|
 
 </details>
 
 <details><summary>Pull and send audit logs from Lyve Cloud to different monitoring solutions </summary> 
 
-| Solution|Cloud Service|Technology|
-| :---:| :---:| :---:|
-| 1. [Sending Lyve Cloud S3 API Audit Log events to be consumed and displayed in AWS CloudWatch.](cloudwatch/)|CloudWatch|Python Script|
-| 2. [Sending Lyve Cloud S3 API Audit Log events to be consumed and displayed in Azure Monitor(Log Analytics).](azure-monitor/)| Azure Monitor|Function app|
+| Solution|Monitoring service
+| ---| ---|
+| 1. [Sending Lyve Cloud S3 API Audit Log events to be consumed and displayed in AWS CloudWatch.](cloudwatch/)|CloudWatch|
+| 2. [Sending Lyve Cloud S3 API Audit Log events to be consumed and displayed in Azure Monitor(Log Analytics).](azure-monitor/)| Azure Monitor|
+| 3. [Sending Lyve Cloud S3 API Audit Log events to be consumed and displayed in Grafana.](audit-log-analysis-grafana/) | Grafana|
 
 </details>
 
-<details><summary>Calculating Lyve Cloud bucket metrics</summary> 
+<details><summary>Calculating Lyve Cloud bucket metrics</summary>
 
 [bucket-metrics-collection](bucket-metrics-collection/)
 
@@ -70,10 +73,16 @@ Terraform provider plugin for managing Lyve Cloud S3 buckets, objects, permissio
 
 [tar-index-extract](/tar-index-extract)
 
-Tool that allows extracting a small amount of files from a tar archive file located in an Lyve Cloud bucket.
+This tool extracts a selection of files from a tar archive stored in an a Lyve Cloud bucket.
 
 </details>
 
+<details><summary>Integrating Apache Spark with Lyve Cloud</summary>
 
+[apache-spark](/apache-spark)
+
+Apache Spark is a powerful data processing engine that can be used to analyze large volumes of data. By combining it with Lyve Cloud, users can easily access and process their data stored on the platform. This solution provides a guide on how to use Apache Spark with Lyve Cloud, including setup instructions.
+
+</details>
 
 The repository is licensed under the [Apache 2.0 License](LICENSE).
