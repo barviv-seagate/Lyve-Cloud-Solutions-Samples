@@ -5,15 +5,13 @@
 In this module, you'll use lyve S3 media as input media file and Lambda to pass the media file to AWS Elemental MediaConvert jobs. 
 The Lyve Input S3 bucket will hold the raw media file and lambda will pass this to AWS Elemental MediaConvert to process the file and output media file will get stored on Lyve Output S3.
 
-![Serverless transcoding architecture](../images/simple-watchfolder.png)
-
 You'll implement a Lambda function that will be invoked each time a user uploads a video.  The lambda will send the video to the MediaConvert service to produce several outputs:
 
 - An Apple HLS adaptive bitrate stream for playout on multiple sized devices and varying bandwidths.
 - An MP4 stream
 - Thumbnails for use in websites to show a preview of the video at a point in time.
 
-Converted outputs will be saved in the S3 MediaBucket created in earlier in the lab.
+Converted outputs will be saved in the S3 MediaBucket.
 
 ## Implementation Instructions
 
@@ -38,10 +36,6 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 
 ### [2. Create an IAM Role for Your Lambda function](#vod-lambda-role)
-
-#### Background
-
-Every Lambda function has an IAM role associated with it. This role defines what other AWS services the function is allowed to interact with. For the purposes of this workshop, you'll need to create an IAM role that grants your Lambda function permission to interact with the MediaConvert service and with the DynamoDB table created in the last step.  
 
 #### High-Level Instructions
 
@@ -156,7 +150,6 @@ Make sure to configure your function to use the `VODLambdaRole` IAM role you cre
 
 1. Click on **Create function**.
 
-    ![Create Lambda convert function screenshot](../images/lambda-convert-author.png)
 
 1. On the Configuration tab of the VODLambdaConvert page, in the  **function code** panel:  
 
@@ -165,15 +158,13 @@ Make sure to configure your function to use the `VODLambdaRole` IAM role you cre
  
     2. Enter `convert.handler` for the **Handler** field.
 
-        ![Lambda function code screenshot](../images/lambda-function-code.png)
-
+ 
 2. On the **Environment Variables** panel of the VODLambdaConvert page, enter the following keys and values:
 
     * DestinationBucket = vod-lastname (or whatever you named your bucket in module 1)
     * MediaConvertRole = arn:aws:iam::ACCOUNT NUMBER:role/vod-MediaConvertRole
     * Application = VOD
 
-    ![Lambda function code screenshot](../images/lambda-environment.png)
 
 3. On the  **Basic Settings** panel, set **Timeout** to 2 minutes.
 
@@ -182,8 +173,6 @@ Make sure to configure your function to use the `VODLambdaRole` IAM role you cre
 ### Test the lambda
 
 1. From the main edit screen for your function, select **Test**.
-
-    ![Configure test event](../images/configure-test-event.png)
 
 1. Enter `ConvertTest` in the **Event name** box.
 
@@ -208,11 +197,8 @@ Use the AWS Lambda console to add a putItem trigger from the `vod-watchfolder-fi
 1. Select `vod-watchfolder-firstname-lastname` or the name you used for the watchfolder bucket you created earlier in this module for the **Bucket**.
 1. Select **PUT** for the **Event type**.
 
-    ![Lambda S3 trigger](../images/lambda-s3-trigger.png)
-
 1. Leave the rest of the settings as the default and click the **Add** button.
 
-    ![Lambda trigger configuration screenshot](../images/lambda-trigger-confgure.png)
 
 
 ### Test the watchfolder automation
@@ -226,7 +212,6 @@ In the next module of this lab, we will setup automated monitoring of jobs creat
 1. Note the time that the upload completed.
 1. Open the MediaConvert jobs page and find a job for the input 'test.mp4' that was started near the time your upload completed.  
 
-    ![Lambda trigger configuration screenshot](../images/verify-watchfolder.png)
 
 1. Navigate to the MP4 or HLS output and play the test video by clicking on the Pine.mp4 output http resource.
 
