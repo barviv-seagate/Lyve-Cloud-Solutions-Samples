@@ -1,8 +1,8 @@
 provider "lyvecloud" {
   //s3 api
   region = "us-east-1"
-  access_key = "2F02BGCKEZWHAWLA"
-  secret_key = "MLVQMMWV000YZS5EUG2VOWLP2BYYWCFD"
+  access_key = "XXXX"
+  secret_key = "XXXX"
   endpoint_url = "https://s3.us-east-1.lyvecloud.seagate.com"
 }
 
