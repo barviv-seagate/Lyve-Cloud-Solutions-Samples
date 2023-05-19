@@ -9,8 +9,8 @@ terraform {
 
  //account api - optional
   provider "lyvecloud" {
-  client_id = "528S9InufaWUCFMLDoEqN7WnLDTY2Ohz"
-  client_secret = "OobLmy-HP0PrGP4W9YJboxcQ3-MG2h4NIj7gWhPeHyvcXyVyLRdRZePSmAA6HJH5"
+  client_id = "XXXX"
+  client_secret = "XXXX"
 }
 
 resource "lyvecloud_permission" "per" {
